@@ -1,6 +1,13 @@
 /* General Styles for the Body */
+@font-face {
+    font-family: 'BADABB';
+    src: url('/assets/fonts/BADABB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 body {
-    font-family: 'Comic Neue', sans-serif;
+    font-family: 'BADABB', sans-serif;
     color: #8B4513;
     margin: 0;
     padding: 0;
@@ -52,7 +59,7 @@ body::after {
 
 /* Heading Styles with Bangers Font */
 h1, h2, h3 {
-    font-family: 'Bangers', sans-serif;
+    font-family: 'BADABB', sans-serif;
     color: #FFD700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -164,7 +171,7 @@ p {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 .contract-address {
-    font-family: 'Comic Neue', sans-serif;
+    font-family: 'BADABB', sans-serif;
     background: #1E90FF;
     color: #F5E8C7;
     padding: 1rem;
@@ -273,7 +280,7 @@ video {
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     display: inline-block;
-    font-family: 'Bangers', sans-serif;
+    font-family: 'BADABB', sans-serif;
     font-size: 4rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -351,7 +358,7 @@ video {
     border: 2px solid #FFD700;
 }
 .alert p {
-    font-family: 'Bangers', sans-serif;
+    font-family: 'BADABB', sans-serif;
     font-size: 2rem;
     color: #8B4513;
     margin: 0 0 1.5rem;
