@@ -1,0 +1,567 @@
+/* General Styles for the Body */
+body {
+    font-family: 'Comic Neue', sans-serif;
+    color: #8B4513;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background with Blurred Dubai Skyline and Pyramid */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+}
+
+/* Dubai Skyline Background */
+body::before {
+    background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    opacity: 0.6;
+}
+
+/* Pyramid Background */
+body::after {
+    background-image: url('https://images.unsplash.com/photo-1547471080-7cc2cae68297?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    opacity: 0.4;
+}
+
+/* Parallax Scrolling Effect */
+@keyframes parallax {
+    0% { background-position: center 0; }
+    100% { background-position: center 50%; }
+}
+
+body::before {
+    animation: parallax 50s linear infinite;
+}
+
+body::after {
+    animation: parallax 70s linear infinite reverse;
+}
+
+/* Heading Styles with Bangers Font */
+h1, h2, h3 {
+    font-family: 'Bangers', sans-serif;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+h1 {
+    font-size: 5.5rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 4.5rem;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    color: #8B4513;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: #F5E8C7;
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-links a, .nav-links i {
+    color: #8B4513;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+.nav-links i {
+    margin: 0 0.5rem;
+}
+.nav-links a:hover, .nav-links i:hover {
+    color: #1E90FF;
+    text-shadow: 0 0 10px #1E90FF;
+}
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #8B4513;
+    cursor: pointer;
+}
+
+/* Hero Section Styles */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 3rem;
+    background: #F5E8C7;
+    border-radius: 10px;
+    margin: 2rem 4rem;
+    max-width: 1400px;
+}
+.hero-text {
+    flex: 1;
+    padding: 2rem;
+}
+.hero h1 {
+    margin-bottom: 1.5rem;
+}
+.hero p {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.btn-primary {
+    background: #FFD700;
+    color: #8B4513;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.btn-primary:hover {
+    background: #1E90FF;
+    color: #F5E8C7;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.contract-address {
+    font-family: 'Comic Neue', sans-serif;
+    background: #1E90FF;
+    color: #F5E8C7;
+    padding: 1rem;
+    border-radius: 8px;
+    word-break: break-all;
+    max-width: 80%;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1.5rem;
+    border: 2px dashed #FFD700;
+}
+.contract-address:hover {
+    background: #FFD700;
+    color: #8B4513;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Video Styles */
+.hero-video {
+    flex: 1;
+    padding: 2rem;
+    max-width: 50%;
+}
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Styles */
+.section {
+    padding: 3rem 2rem;
+    background: #F5E8C7;
+    border-radius: 10px;
+    margin: 2rem 4rem;
+    max-width: 1400px;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #FFD700;
+}
+.section p {
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.about-gif, .about-text {
+    flex: 1;
+    max-width: 48%;
+    padding: 1rem;
+}
+.about-gif img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Meme Wall Styles */
+.meme-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+.meme-wall p {
+    background: #FFD700;
+    color: #8B4513;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease;
+}
+.meme-wall p:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Marquee Styles for $HABIBI COME TO SUI */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    color: #ffffff;
+    padding: 1rem 0;
+    margin: 1.5rem 0;
+}
+.marquee p {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    font-family: 'Bangers', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    animation: marquee 15s linear infinite;
+    padding-right: 50px;
+}
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Find Us On Section Styles */
+.find-us-section {
+    text-align: center;
+}
+.find-us-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+}
+.find-us-grid a {
+    flex: 1 1 150px;
+    max-width: 150px;
+}
+.find-us-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+.find-us-grid img:hover {
+    transform: scale(1.1);
+}
+
+/* Meme Grid Styles (Now Including Videos) */
+.meme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+.meme-grid img, .meme-grid video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px dashed #8B4513;
+    transition: transform 0.3s ease;
+}
+.meme-grid img:hover, .meme-grid video:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Alert Styles */
+.alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #F5E8C7;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    text-align: center;
+    border: 2px solid #FFD700;
+}
+.alert p {
+    font-family: 'Bangers', sans-serif;
+    font-size: 2rem;
+    color: #8B4513;
+    margin: 0 0 1.5rem;
+}
+.alert button {
+    background: #1E90FF;
+    color: #F5E8C7;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.alert button:hover {
+    background: #FFD700;
+    color: #8B4513;
+}
+
+/* Audio Toggle Button Styles */
+.audio-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #FFD700;
+    color: #8B4513;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 1500;
+}
+.audio-toggle:hover {
+    background: #1E90FF;
+    color: #F5E8C7;
+    transform: scale(1.1);
+}
+.audio-toggle i {
+    font-size: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-container {
+    display: flex;
+    justify-content: start;
+    /* align-items: center; */
+    /* max-width: 1400px; */
+    margin: 0 auto;
+}
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0px;
+        background: #F5E8C7;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a, .nav-links i {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+    }
+    .hero {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    .hero-text, .hero-video {
+        padding: 0.5rem;
+    }
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .hero p {
+        font-size: 1.4rem;
+    }
+    .btn-primary {
+        font-size: 1.4rem;
+        padding: 0.5rem 1rem;
+    }
+    .contract-address {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
+    .section h2 {
+        font-size: 2.5rem;
+    }
+    .section p {
+        font-size: 1.4rem;
+    }
+    .about-gif, .about-text {
+        max-width: 100%;
+    }
+    .marquee p {
+        font-size: 2rem;
+    }
+    .meme-wall p {
+        font-size: 1.2rem;
+    }
+    .alert p {
+        font-size: 1.6rem;
+    }
+    .alert button {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .audio-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    .audio-toggle i {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+    }
+    .hero-text, .hero-video {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 2.5rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .btn-primary {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .contract-address {
+        font-size: 0.9rem;
+        max-width: 95%;
+    }
+    .section {
+        padding: 1rem 0.5rem;
+        margin: 0.5rem;
+    }
+    .section h2 {
+        font-size: 2rem;
+    }
+    .section p {
+        font-size: 1.2rem;
+    }
+    .meme-wall {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+    .meme-wall p {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    .marquee p {
+        font-size: 1.5rem;
+    }
+    .meme-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+    }
+    .meme-grid img, .meme-grid video {
+        height: 120px;
+    }
+    .find-us-grid a {
+        max-width: 80px;
+    }
+    .find-us-grid img {
+        height: 50px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .alert p {
+        font-size: 1.4rem;
+    }
+    .alert button {
+        font-size: 1rem;
+    }
+    .audio-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    .audio-toggle i {
+        font-size: 1.5rem;
+    }
+}
