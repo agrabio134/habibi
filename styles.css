@@ -572,3 +572,107 @@ video {
         font-size: 1.5rem;
     }
 }
+/* Mini Game Section Styles */
+.mini-game-section {
+    text-align: center;
+}
+.mini-game-card {
+    background: #FFD700;
+    color: #8B4513;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #1E90FF;
+}
+.mini-game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.mini-game-card h3 {
+    color: #fFF;
+    margin-bottom: 1rem;
+}
+.mini-game-card p {
+    font-size: 1.6rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #1E90FF;
+    color: #F5E8C7;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-family: 'BADABB', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.close-modal:hover {
+    background: #FFD700;
+    color: #8B4513;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mini-game-card {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    .mini-game-card h3 {
+        font-size: 2.5rem;
+    }
+    .mini-game-card p {
+        font-size: 1.2rem;
+    }
+    .close-modal {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        top: 10px;
+        right: 10px;
+    }
+}
+@media (max-width: 640px) {
+    .mini-game-card h3 {
+        font-size: 2rem;
+    }
+    .mini-game-card p {
+        font-size: 1rem;
+    }
+    .close-modal {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

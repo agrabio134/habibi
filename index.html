@@ -99,11 +99,11 @@
                 <p>I’M HABIBI — THE BLUE DESERT KING.
                     VIBES. CAMELS. FERRARIS.
                     WELCOME TO SUI, HABIBIII.
-                    
+
                     THIS AIN’T JUST A COIN — IT’S A LIFESTYLE.
                     IT’S A VIBE. SPEAK HABIBI. LIVE HABIBI.
                     THIS WILL GO VIRAL.
-                    
+
                     HABIBIS, I’M TAKING YOU TO DUBAI.
                     THE MARKET’S MINE — FROM DESERT TO PALACE.
                     ALL EYES ON ME.
@@ -163,6 +163,22 @@
                     alt="Moonbags.io Logo"></a>
         </div>
     </section>
+    <!-- Mini Game Section -->
+    <section id="mini-game" class="section mini-game-section">
+        <h2>Mini Game</h2>
+        <div class="mini-game-card" onclick="openModal()">
+            <h3>Habibi's Bazaar Dash</h3>
+            <p>Play our exciting game and dash through the souk to collect SUI charms!</p>
+        </div>
+    </section>
+
+    <!-- Modal for Mini Game -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">Close</button>
+            <iframe src="./habibi-game/index.html" title="Habibi's Bazaar Dash"></iframe>
+        </div>
+    </div>
 
     <section id="join" class="section">
         <h2>Join the Adventure</h2>
@@ -235,6 +251,14 @@
             }
             isPlaying = !isPlaying;
         }
+
+        function openModal() {
+        document.getElementById('gameModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('gameModal').style.display = 'none';
+    }
     </script>
 </body>
 
