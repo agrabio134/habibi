@@ -45,6 +45,14 @@
             /* Allows wrapping if needed */
         }
     }
+
+    .mobile-message {
+        display: none;
+        color: #ff0000;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -108,7 +116,6 @@
                     THE MARKET’S MINE — FROM DESERT TO PALACE.
                     ALL EYES ON ME.
                     YALLA.</p>
-                <!-- <p>THE MARKET’S MY BITCH! DESERT TO PALACE, ALL EYES ON ME! RIDE OR GET REKT, YALLA OR GTFO!</p> -->
             </div>
         </div>
     </section>
@@ -169,6 +176,7 @@
         <div class="mini-game-card" onclick="openModal()">
             <h3>Habibi's Bazaar Dash</h3>
             <p>Play our exciting game and dash through the souk to collect SUI charms!</p>
+            <p class="mobile-message">Games not available on mobile devices. Please check on your desktop browser or use desktop mode on your mobile.</p>
         </div>
     </section>
 
@@ -253,12 +261,16 @@
         }
 
         function openModal() {
-        document.getElementById('gameModal').style.display = 'flex';
-    }
+            if (window.innerWidth <= 768) {
+                document.querySelector('.mobile-message').style.display = 'block';
+                return;
+            }
+            document.getElementById('gameModal').style.display = 'flex';
+        }
 
-    function closeModal() {
-        document.getElementById('gameModal').style.display = 'none';
-    }
+        function closeModal() {
+            document.getElementById('gameModal').style.display = 'none';
+        }
     </script>
 </body>
 

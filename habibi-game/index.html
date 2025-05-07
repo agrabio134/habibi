@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Habibi's Bazaar Dash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
     @font-face {
       font-family: 'BADABB';
@@ -9,93 +10,138 @@
       font-weight: normal;
       font-style: normal;
     }
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       background: linear-gradient(135deg, #191970, #FFD700);
       font-family: 'BADABB', serif;
-      overflow: hidden;
+      touch-action: manipulation;
     }
     #gameCanvas {
       border: 4px solid #8B4513;
       border-radius: 15px;
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 100vw;
+      max-height: 100vh;
       filter: blur(5px);
       transition: filter 0.5s ease;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%238B4513" stroke-width="2" d="M50 10a40 40 0 0 0 0 80 40 40 0 0 0 0-80zm0 20a20 20 0 0 0 0 40 20 20 0 0 0 0-40zM10 50h80M50 10v80"/></svg>') repeat;
-      background-opacity: 0.1;
+      background: transparent;
+      touch-action: none;
+      display: block;
     }
     #menu {
       position: absolute;
-      background: rgba(245, 232, 199, 0.9) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><path fill="none" stroke="%23FFD700" stroke-width="1" d="M25 5a20 20 0 0 0 0 40 20 20 0 0 0 0-40zm0 10a10 10 0 0 0 0 20 10 10 0 0 0 0-20z"/></svg>') repeat;
-      padding: 50px;
+      background: rgba(245, 232, 199, 0.9);
+      padding: 15px;
       border: 3px solid #FFD700;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 0 30px rgba(139, 69, 19, 0.5);
-      border-top-left-radius: 50px;
-      border-top-right-radius: 50px;
+      box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      width: 85%;
+      max-width: 300px;
+      font-size: 16px;
     }
     #playButton, #retryButton, #submitScoreButton {
-      padding: 15px 30px;
-      font-size: 24px;
+      padding: 10px 20px;
+      font-size: 18px;
       background: linear-gradient(45deg, #FFD700, #1E90FF);
       border: 2px solid #8B4513;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
-      margin: 8px;
+      margin: 6px;
       color: #8B4513;
       font-weight: 700;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      box-sizing: border-box;
     }
     #playButton:hover, #retryButton:hover, #submitScoreButton:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #FFD700;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #FFD700;
     }
     #scoreForm {
-      margin-top: 30px;
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     #playerName {
-      padding: 15px;
-      font-size: 20px;
-      margin-right: 15px;
-      border: 3px solid #FFD700;
-      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
       background: #FFF5E6;
       font-family: 'BADABB', serif;
+      width: 80%;
+      box-sizing: border-box;
     }
     h1 {
       color: #8B4513;
-      font-size: 36px;
-      text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.5);
-      margin-bottom: 20px;
+      font-size: 24px;
+      text-shadow: 1px 1px 3px rgba(255, 215, 0, 0.5);
+      margin: 10px 0;
     }
-    @media screen and (max-width: 480px) {
-      #gameCanvas {
-        height: 200px;
-      }
+    p {
+      color: #8B4513;
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    @media screen and (max-width: 768px) {
       #menu {
-        padding: 20px;
+        padding: 10px;
         width: 90%;
-        max-width: 250px;
+        max-width: 280px;
+        font-size: 14px;
       }
       #playButton, #retryButton, #submitScoreButton {
         font-size: 16px;
         padding: 8px 16px;
-        margin: 4px;
+        margin: 5px;
       }
       #playerName {
         font-size: 14px;
         padding: 8px;
-        margin-bottom: 10px;
       }
       h1 {
-        font-size: 24px;
+        font-size: 20px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      #menu {
+        padding: 8px;
+        width: 95%;
+        max-width: 260px;
+        font-size: 12px;
+      }
+      #gameCanvas{
+        height: 75vh !important;
+      }
+      #playButton, #retryButton, #submitScoreButton {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 4px;
+      }
+      #playerName {
+        font-size: 12px;
+        padding: 6px;
+      }
+      h1 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 12px;
       }
     }
   </style>
@@ -164,22 +210,35 @@
 
       // Initialize canvas size
       function resizeCanvas() {
-        const aspectRatio = 800 / 600;
-        const maxWidth = window.innerWidth * 0.9;
-        const maxHeight = window.innerHeight * 0.7;
-        let newWidth = maxWidth;
-        let newHeight = newWidth / aspectRatio;
+        const aspectRatio = 4 / 3;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-        if (newHeight > maxHeight) {
-          newHeight = maxHeight;
-          newWidth = newHeight * aspectRatio;
+        let canvasWidth, canvasHeight;
+        if (windowWidth <= 768) { // Mobile devices
+          canvasHeight = windowHeight * 5; // 85% of screen height
+          canvasWidth = canvasHeight * aspectRatio;
+          if (canvasWidth > windowWidth) {
+            canvasWidth = windowWidth * 0.95;
+            canvasHeight = canvasWidth / aspectRatio;
+          }
+        } else { // Desktop devices
+          canvasWidth = windowWidth;
+          canvasHeight = canvasWidth / aspectRatio;
+          if (canvasHeight > windowHeight) {
+            canvasHeight = windowHeight;
+            canvasWidth = canvasHeight * aspectRatio;
+          }
         }
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.width = `${canvasWidth}px`;
+        canvas.style.height = `${canvasHeight}px`;
       }
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('orientationchange', resizeCanvas);
 
       let gameStarted = false;
       let gameOver = false;
@@ -347,16 +406,15 @@
         menu.innerHTML = `
           <h1>${endCondition === 'victory' ? 'Wallah, Souk Star!' : 'Ya Habibi, Try Again'}</h1>
           <p>Score: ${finalScore}</p>
-          <form id="scoreForm">
+          <div id="scoreForm">
             <input type="text" id="playerName" placeholder="Enter your name, Habibi" maxlength="20">
-            <button type="submit" id="submitScoreButton">Save Score</button>
-          </form>
+            <button id="submitScoreButton">Save Score</button>
+          </div>
           <button id="retryButton">Dash Again, Habibi</button>
         `;
         menu.style.display = 'block';
 
-        document.getElementById('scoreForm').addEventListener('submit', (e) => {
-          e.preventDefault();
+        document.getElementById('submitScoreButton').addEventListener('click', () => {
           const name = document.getElementById('playerName').value.trim() || 'Anonymous';
           saveHighScore(name, finalScore);
         });
@@ -365,7 +423,10 @@
       }
 
       document.addEventListener('keydown', (e) => { if (e.code === 'Space') handleJump(); });
-      canvas.addEventListener('click', handleJump);
+      canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleJump();
+      }, { passive: false });
 
       function update(deltaTime) {
         if (!gameStarted || gameOver) return;
@@ -605,12 +666,12 @@
       function drawIntro() {
         ctx.fillStyle = 'rgba(25, 25, 112, 0.8)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '36px BADABB';
+        ctx.font = `${Math.min(24, canvas.height * 0.06)}px BADABB`;
         ctx.fillStyle = '#FFD700';
         ctx.textAlign = 'center';
-        ctx.fillText('Habibi sees the Star of Souk dim...', canvas.width / 2, canvas.height / 2 - 20);
-        ctx.font = '24px BADABB';
-        ctx.fillText('Dash to restore its magic!', canvas.width / 2, canvas.height / 2 + 20);
+        ctx.fillText('Habibi sees the Star of Souk dim...', canvas.width / 2, canvas.height / 2 - 15);
+        ctx.font = `${Math.min(18, canvas.height * 0.045)}px BADABB`;
+        ctx.fillText('Tap to restore its magic!', canvas.width / 2, canvas.height / 2 + 15);
         spawnParticles(canvas.width / 2, canvas.height / 2, 5, '#FFD700');
         particles.forEach(particle => {
           ctx.fillStyle = particle.color;
@@ -735,39 +796,40 @@
             ctx.fill();
           });
 
+          const fontSize = Math.min(18, canvas.height * 0.04);
           ctx.fillStyle = '#8B4513';
-          ctx.font = '24px BADABB';
+          ctx.font = `${fontSize}px BADABB`;
           ctx.textAlign = 'center';
           ctx.shadowColor = '#FFD700';
           ctx.shadowBlur = 5;
           if (!endlessMode) {
-            ctx.fillText(`Collect ${maxCharms} SUI Charms for the Star!`, canvas.width / 2, 40);
+            ctx.fillText(`Collect ${maxCharms} SUI Charms for the Star!`, canvas.width / 2, fontSize * 1.5);
           } else {
-            ctx.font = '36px BADABB';
+            ctx.font = `${Math.min(24, canvas.height * 0.05)}px BADABB`;
             ctx.fillStyle = '#FFD700';
-            ctx.fillText('ETERNAL SOUK RUN', canvas.width / 2, 50);
-            ctx.font = '24px BADABB';
+            ctx.fillText('ETERNAL SOUK RUN', canvas.width / 2, fontSize * 2);
+            ctx.font = `${fontSize}px BADABB`;
             ctx.fillStyle = '#8B4513';
           }
-          ctx.fillText(`Time: ${Math.floor(gameTime)}s | Score: ${Math.floor(score)} | Lives: ${player.lives}`, canvas.width / 2, 80);
-          if (player.invincibility > 0) ctx.fillText(`Power: ${Math.ceil(player.invincibility/1000)}s`, canvas.width / 2, 110);
+          ctx.fillText(`Time: ${Math.floor(gameTime)}s | Score: ${Math.floor(score)} | Lives: ${player.lives}`, canvas.width / 2, fontSize * 3);
+          if (player.invincibility > 0) ctx.fillText(`Power: ${Math.ceil(player.invincibility/1000)}s`, canvas.width / 2, fontSize * 4);
           ctx.shadowBlur = 0;
 
           ctx.textAlign = 'left';
-          ctx.font = '22px BADABB';
+          ctx.font = `${Math.min(16, canvas.height * 0.035)}px BADABB`;
           ctx.fillStyle = '#FFD700';
-          ctx.fillText('Bazaar Ledger', 10, 40);
+          ctx.fillText('Bazaar Ledger', 10, fontSize * 1.5);
           if (highScores.length > 0) {
-            ctx.font = '24px BADABB';
+            ctx.font = `${Math.min(18, canvas.height * 0.04)}px BADABB`;
             ctx.fillStyle = '#FF7F50';
-            ctx.fillText(`Top: ${highScores[0].name} : ${highScores[0].score}`, 10, 70);
-            ctx.font = '20px BADABB';
+            ctx.fillText(`Top: ${highScores[0].name} : ${highScores[0].score}`, 10, fontSize * 2.5);
+            ctx.font = `${Math.min(16, canvas.height * 0.035)}px BADABB`;
             ctx.fillStyle = '#FFD700';
             highScores.slice(1, 5).forEach((entry, index) => {
-              ctx.fillText(`${index + 2}. ${entry.name} : ${entry.score}`, 10, 100 + index * 25);
+              ctx.fillText(`${index + 2}. ${entry.name} : ${entry.score}`, 10, fontSize * (3.5 + index));
             });
           } else {
-            ctx.fillText('No merchants yet', 10, 70);
+            ctx.fillText('No merchants yet', 10, fontSize * 2.5);
           }
         }
       }
